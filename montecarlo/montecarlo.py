@@ -25,7 +25,7 @@ class Die():
         self.faces = faces
         self.weights = [1 for i in faces]
         self.__die = pd.DataFrame({
-            'weights' : self.weights
+            "weights" : self.weights
         }).set_index(self.faces)
     
     def change_weight(self, face_value, new_weight):
@@ -45,7 +45,7 @@ class Die():
         
         self.__die.loc[face_value] = new_weight
     
-    def roll_die(self, num_rolls=1):
+    def roll_die(self, num_rolls = 1):
         """
         Rolls the die object one or more times.
         
@@ -56,7 +56,7 @@ class Die():
         """
         outcomes = []
         for i in range(num_rolls):
-            outcome = self.__die.sample(weights=self.__die.weights).index[0]
+            outcome = self.__die.sample(weights = self.__die.weights).index[0]
             outcomes.append(outcome)
         return outcomes
     
@@ -82,7 +82,7 @@ class Game(Die):
         """
         self.die_list = die_list
     
-    def play_game(self,game_rolls):
+    def play_game(self, game_rolls):
         """
         Rolls all dice a specified number of times.
         
@@ -100,7 +100,7 @@ class Game(Die):
                                       columns = ("Roll " + str(i+1) for i in range(0, game_rolls)),
                                       index = ("Die " + str(i+1) for i in range(len(self.die_list)))).T
     
-    def game_results(self, form="wide"):
+    def game_results(self, form= "wide"):
         """
         Returns game results data frame in a specified format.
         
@@ -114,28 +114,11 @@ class Game(Die):
             return self.__outcome_df
         
         if form.lower() == "narrow":
-            narrow_df = self.__outcome_df.reset_index().melt(id_vars='index',
-                                                             var_name='Die Number',
-                                                             value_name='Outcome')
+            narrow_df = self.__outcome_df.reset_index().melt(id_vars = "index",
+                                                             var_name = "Die Number",
+                                                             value_name = "Outcome")
             narrow_df = narrow_df.set_index(['index','Die Number']).sort_index()
-            return narrow_df
-    
-    def game_results(self, form="wide"):
-        """
-        method to return game results in specified format
-        """
-        if form.lower() != "wide" and form.lower() != "narrow":
-            raise ValueError("form input must be 'wide' or 'narrow'")
-        
-        if form.lower() == "wide":
-            return self.__outcome_df
-        
-        if form.lower() == "narrow":
-            narrow_df = self.__outcome_df.reset_index().melt(id_vars='index',
-                                                             var_name='Die Number',
-                                                             value_name='Outcome')
-            narrow_df = narrow_df.set_index(['index','Die Number']).sort_index()
-            return narrow_df
+            return narrow_df    
 
 class Analyzer(Game):
     """
@@ -192,7 +175,7 @@ class Analyzer(Game):
         """
         combo_df = self.outcomes.apply(lambda x: x.sort_values(), axis=1, result_type = "broadcast")
         combo_df = combo_df.groupby([i for i in combo_df.columns]).size().reset_index(name = "count")
-        combo_df = combo_df.set_index([i for i in combo_df.columns])#.sort_values(["Count"], ascending=False)
+        combo_df = combo_df.set_index([i for i in combo_df.columns])#.sort_values(["count"], ascending=False)
         
         return combo_df
         
@@ -205,7 +188,7 @@ class Analyzer(Game):
         their associated counts.
         """
         perm_df = self.outcomes.groupby([i for i in self.outcomes.columns]).size().reset_index(name = "count")
-        perm_df = perm_df.set_index([i for i in self.outcomes.columns])#.sort_values(["Count"], ascending=False)
+        perm_df = perm_df.set_index([i for i in self.outcomes.columns])#.sort_values(["count"], ascending=False)
         
         return perm_df
  
