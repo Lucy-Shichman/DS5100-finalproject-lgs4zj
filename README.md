@@ -14,7 +14,7 @@ Generate dice by passing an array of faces to the Die class:
 die1 = Die(np.array(['1','2','3','4','5','6']))
 die2 = Die(np.array(['1','2','3','4','5','6']))
 ```
-To execute a game, first create a Game class object by passing a list of similar Die objects. Use the play_game() function to run a game:
+To execute a game, first create a Game class object by passing a list of similar Die objects. Use the play_game() method to run a game:
 ```
 game1 = Game([die1, die2])
 ```
