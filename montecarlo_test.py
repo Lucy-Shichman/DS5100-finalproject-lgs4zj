@@ -58,8 +58,8 @@ class MonteCarloTestSuite(unittest.TestCase):
         die2 = Die(np.array(['1','2','3']))
         game1 = Game([die1, die2])
         
-        expected = type(game1.die_list) != list
-        self.assertFalse(expected)
+        expected = type(game1.die_list) == list
+        self.assertTrue(expected)
     
     def test_6_play_game(self):
         '''
@@ -93,7 +93,7 @@ class MonteCarloTestSuite(unittest.TestCase):
     def test_8_Analyzer_init(self):
         '''
         initialize an Analyzer object.
-        test if outcomes attribute is a data frame.
+        test if outcomes attribute is formatted as a data frame.
         '''
         die1 = Die(np.array(['1','2','3']))
         die2 = Die(np.array(['1','2','3']))
