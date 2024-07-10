@@ -68,7 +68,7 @@ class Die():
         """
         return self.__die
 
-class Game(Die):
+class Game():
     """
     This class creates a game object. A game consists of rolling one 
     or more similar dice (Die objects) one or more times.
@@ -118,7 +118,7 @@ class Game(Die):
             narrow_df = narrow_df.set_index(['index','Die Number']).sort_index()
             return narrow_df    
 
-class Analyzer(Game):
+class Analyzer():
     """
     This class creates an analyzer object which takes the 
     results of a single game and computes various descriptive
