@@ -28,7 +28,7 @@ class MonteCarloTestSuite(unittest.TestCase):
         expected = die1.current_state().weights.isin([5]).sum()
         self.assertTrue(expected)
     
-    def tests_3_roll_die(self):
+    def test_3_roll_die(self):
         '''
         roll the die twice. 
         test if the method returns a list of length 2.
