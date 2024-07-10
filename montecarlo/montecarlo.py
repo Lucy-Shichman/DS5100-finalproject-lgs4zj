@@ -77,7 +77,7 @@ class Game(Die):
         """
         Initializes list of die objects.
         
-        Takes argument die_list (Die class objects) of already
+        Takes argument die_list (list of Die class objects) of already
         instantiated similar dice.
         """
         self.die_list = die_list
@@ -88,8 +88,6 @@ class Game(Die):
         
         Takes argument game_rolls (integer) to specify how many times
         the die should be rolled.
-        
-        Results are saved to a private dataframe.
         """
         outcomes = []
         for die in self.die_list:
@@ -100,7 +98,7 @@ class Game(Die):
                                       columns = ("Roll " + str(i+1) for i in range(0, game_rolls)),
                                       index = ("Die " + str(i+1) for i in range(len(self.die_list)))).T
     
-    def game_results(self, form= "wide"):
+    def game_results(self, form = "wide"):
         """
         Returns game results data frame in a specified format.
         
@@ -130,10 +128,10 @@ class Analyzer(Game):
         """
         Initializes an Analyzer object.
         
-        Takes argument game_object (Game class object).
+        Takes argument game_object (Game class object), an already instantiated game.
         
         Initializes a game_object attribute to store the Game object
-        and a outcomes attribute to store the Game object's results.
+        and an outcomes attribute to store the Game object's results.
         """
         if not isinstance(game_object, Game):
             raise ValueError("game_object input must be a Game object")
