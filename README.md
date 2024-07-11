@@ -10,6 +10,11 @@ Import the three classes:
 ```
 from montecarlo.montecarlo import Die, Game, Analyzer
 ```
+Import Pandas and NumPy:
+```
+import pandas as pd
+import numpy as np
+```
 Generate dice by passing an array of faces to the Die class:
 ```
 die1 = Die(np.array(['1','2','3','4','5','6']))
