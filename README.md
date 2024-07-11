@@ -2,12 +2,12 @@
 Lucy Shichman \
 DS5100 Final Project
 ## Synopsis
-Install and import the montecarlo package:
+Install the montecarlo package and import the three classes:
 ```
 !pip install -e .
 ```
 ```
-import montecarlo.montecarlo
+from montecarlo.montecarlo import Die, Game, Analyzer
 ```
 Generate dice by passing an array of faces to the Die class:
 ```
