@@ -102,7 +102,7 @@ class Game():
         """
         Returns game results data frame in a specified format.
         
-        Takes argument form ("wide" or "narrow") that specifies the
+        Takes argument form (string, "wide" or "narrow") that specifies the
         format of the returned data frame. Defaults to wide format.
         """
         if form.lower() != "wide" and form.lower() != "narrow":
