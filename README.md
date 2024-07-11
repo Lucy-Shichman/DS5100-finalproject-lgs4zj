@@ -2,9 +2,9 @@
 Lucy Shichman \
 DS5100 Final Project
 ## Synopsis
-Install the montecarlo package:
+Install the montecarlo package. Do something like this:
 ```
-!pip install -e .
+pip install .
 ```
 Import the three classes:
 ```
