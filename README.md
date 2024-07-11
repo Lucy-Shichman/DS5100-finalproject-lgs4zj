@@ -2,10 +2,11 @@
 Lucy Shichman \
 DS5100 Final Project
 ## Synopsis
-Install the montecarlo package and import the three classes:
+Install the montecarlo package:
 ```
 !pip install -e .
 ```
+Import the three classes:
 ```
 from montecarlo.montecarlo import Die, Game, Analyzer
 ```
