@@ -173,7 +173,7 @@ class Analyzer():
         """
         combo_df = self.outcomes.apply(lambda x: x.sort_values(), axis=1, result_type = "broadcast")
         combo_df = combo_df.groupby([i for i in combo_df.columns]).size().reset_index(name = "count")
-        combo_df = combo_df.set_index([i for i in combo_df.columns])#.sort_values(["count"], ascending=False)
+        combo_df = combo_df.set_index([i for i in combo_df.columns])
         
         return combo_df
         
@@ -186,7 +186,7 @@ class Analyzer():
         their associated counts.
         """
         perm_df = self.outcomes.groupby([i for i in self.outcomes.columns]).size().reset_index(name = "count")
-        perm_df = perm_df.set_index([i for i in self.outcomes.columns])#.sort_values(["count"], ascending=False)
+        perm_df = perm_df.set_index([i for i in self.outcomes.columns])
         
         return perm_df
  
